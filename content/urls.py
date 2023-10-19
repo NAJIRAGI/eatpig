@@ -8,6 +8,7 @@ from . import views
 app_name = 'content'
 
 urlpatterns = [
+    path('', Contents.as_view()),
     path('content_list/', Contents.as_view()),
     path('upload', UploadFeed.as_view()),
     path('reply/', UploadReply.as_view()),

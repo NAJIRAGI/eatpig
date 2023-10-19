@@ -6,6 +6,7 @@ from eatpig import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('content.urls')),
     path('contents/', include('content.urls')),
     path('accounts/', include('account.urls'))
 ]
