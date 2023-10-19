@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- JS로 정보 전달 -->
+    <input type="hidden" id="userNickname" data-nickname="{{ user.nickname }}">
+    <input type="hidden" id="profileImage" data-image="{{ user.profile_image }}">
+    <input type="hidden" id="userEmail" data-email="{{ user.email }}">
+
+
+    <div class="mypage_area">
+        <div class="mypage_profile_box">
+            <img class="mypage_profile_img" src="{% get_media_prefix %}{{ user.profile_img }}" alt="">
+        </div>
+        <div class="mypage_name">
+            <h2 class="user_nickname">{{ user.nickname }}</h2>
+            <h2 class="user_name">{{ user.name }}</h2>
+        </div>
+        <div class="mypage_btn">
+            <button id="btn_profile_upload" class="btn btn-dark rounded-pill">프로필 사진 수정하기</button>
+            <input type="file" id="input_file_upload" onchange="profile_upload();" style="display: none;"/>
+        </div>
+        <div class="mypage_btn">
+            <button class="btn btn-dark rounded-pill">
+                <a href="/accounts/update">프로필 수정하기</a>
+            </button>
+        </div>
+        <div class="mypage_btn">
+            <button class="btn btn-danger rounded-pill">
+                <a href="/accounts/delete/">프로필 삭제하기</a>
+            </button>
+        </div>
+    </div>
+    <div class="mypage_list">
+        <div class="mypage_nav">
+            <div class="mypage_icon" id="btn_my_feed">
+                <span class="material-icons-outlined">grid_on</span>내 게시물
+            </div>
+            <div class="mypage_icon" id="btn_my_like">
+                <span class="material-icons-outlined">favorite_border</span>좋아요
+            </div>
+            <div class="mypage_icon" id="btn_my_bookmark">
+                <span class="material-icons-outlined">bookmark_border</span>북마크
+            </div>
+        </div>
+    </div>
+
+    <!-- 내 게시물 -->
+    <div id="my_feed_list" class="my_feed_list">
+        <div class="mypage_feed_list">
+            {% if my_feed_list %}
+                {% for feed in my_feed_list %}
+                    <div class="mypage_content_list">
+                        <div class="mypage_content_img_box">
+                            <img alt="" class="mypage_content_img" src="{% get_media_prefix %}{{ feed.image }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>작성한 게시글이 없습니다.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 내가 좋아요 한 게시물 -->
+    <div id="my_like_feed_list" class="my_like_feed_list">
+        <div class="mypage_feed_list">
+            {% if my_like_feed_list %}
+                {% for feed in my_like_feed_list %}
+                    <div class="mypage_content_list">
+                        <div class="mypage_content_img_box">
+                            <img alt="" class="mypage_content_img" src="{% get_media_prefix %}{{ feed.image }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>좋아요를 누른 게시글이 없습니다.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 내가 북마크 한 게시물 -->
+    <div id="my_bookmark_feed_list" class="my_bookmark_feed_list">
+        <div class="mypage_feed_list">
+            {% if my_bookmark_feed_list %}
+                {% for feed in my_bookmark_feed_list %}
+                    <div class="mypage_content_list">
+                        <div class="mypage_content_img_box">
+                            <img alt="" class="mypage_content_img" src="{% get_media_prefix %}{{ feed.image }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>북마크를 누른 게시글이 없습니다.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/mypage.js' %}?{% now 'U' %}"></script>
+    <script type="application/json" id="email">{{ user.email|json_script:"email" }}</script>
+{% endblock %}

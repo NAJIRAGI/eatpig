@@ -1,0 +1,39 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eat Pig</title>
+
+    <!-- Boot Strap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Google Icon -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+          rel="stylesheet">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <!-- STATIC CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/join.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/update.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}?{% now 'U' %}">
+
+    <style>
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>

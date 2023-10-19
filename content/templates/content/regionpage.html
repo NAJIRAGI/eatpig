@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="category_area">
+        <h1 class="category_title">지역별 맛집 찾기!</h1>
+        <span>원하는 지역의 이름을 Click! 해주세요!</span>
+        <div>
+            <img src="{% static 'img/kor_map.png' %}" alt="" usemap="#kor_map">
+            <map name="kor_map">
+                <area alt="" href="/contents/content_list/?region=서울" coords="211,91,267,108" shape="rect">
+                <area alt="" href="/contents/content_list/?region=부산" coords="349,274,410,291" shape="rect">
+                <area alt="" href="/contents/content_list/?region=대구" coords="321,219,380,238" shape="rect">
+                <area alt="" href="/contents/content_list/?region=인천" coords="146,92,204,112" shape="rect">
+                <area alt="" href="/contents/content_list/?region=광주" coords="208,275,268,297" shape="rect">
+                <area alt="" href="/contents/content_list/?region=대전" coords="214,188,279,205" shape="rect">
+                <area alt="" href="/contents/content_list/?region=세종" coords="250,162,331,179" shape="rect">
+                <area alt="" href="/contents/content_list/?region=울산" coords="378,247,436,264" shape="rect">
+                <area alt="" href="/contents/content_list/?region=경기" coords="219,115,256,133" shape="rect">
+                <area alt="" href="/contents/content_list/?region=강원" coords="281,79,329,97" shape="rect">
+                <area alt="" href="/contents/content_list/?region=충북" coords="253,140,304,154" shape="rect">
+                <area alt="" href="/contents/content_list/?region=충남" coords="191,157,239,175" shape="rect">
+                <area alt="" href="/contents/content_list/?region=전북" coords="215,228,265,246" shape="rect">
+                <area alt="" href="/contents/content_list/?region=전남" coords="188,300,238,318" shape="rect">
+                <area alt="" href="/contents/content_list/?region=경북" coords="305,181,354,196" shape="rect">
+                <area alt="" href="/contents/content_list/?region=경남" coords="282,258,330,277" shape="rect">
+                <area alt="" href="/contents/content_list/?region=제주" coords="155,401,245,430" shape="rect">
+            </map>
+        </div>
+    </div>
+    <script src="{% static 'js/base.js' %}?{% now 'U' %}"></script>
+{% endblock %}

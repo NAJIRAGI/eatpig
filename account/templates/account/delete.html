@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- JS로 정보 전달 -->
+    <input type="hidden" id="userNickname" data-nickname="{{ user.nickname }}">
+    <input type="hidden" id="profileImage" data-image="{{ user.profile_image }}">
+    <input type="hidden" id="userEmail" data-email="{{ user.email }}">
+
+
+    <div class="mypage_area">
+        <div class="mypage_profile_box">
+            <img class="mypage_profile_img" src="{% get_media_prefix %}{{ profileImg }}" alt="">
+        </div>
+        <div class="mypage_name">
+            <h2 class="user_nickname">{{ nickname }}</h2>
+            <h2 class="user_name">{{ name }}</h2>
+        </div>
+        <div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="delete-account-password" placeholder="password">
+                <label for="delete-account-password" class="label_float">비밀번호를 입력해주세요</label>
+            </div>
+        </div>
+        <div class="mypage_btn">
+            <button class="btn btn-dark rounded-pill">
+                <a href="/accounts/mypage/">돌아가기</a>
+            </button>
+        </div>
+        <div class="mypage_btn">
+            <button id="delete-account-button" class="btn btn-danger rounded-pill">
+                프로필 삭제하기
+            </button>
+        </div>
+    </div>
+    <script src="{% static 'js/delete.js' %}?{% now 'U' %}"></script>
+{% endblock %}

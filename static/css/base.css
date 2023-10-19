@@ -1,0 +1,466 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    font-family: 'MaplestoryOTFBold';
+}
+
+/* 페이지의 전체 로고 타이틀 CSS */
+.page_title {
+    font-size: 1.5rem;
+}
+
+.icon {
+    width: 5rem;
+    height: 5rem;
+}
+
+.tag_font {
+    font-size: .8rem;
+    margin-bottom: 1rem;
+}
+
+.mypage_img_box {
+    margin-bottom: 1rem;
+}
+
+.pass_box {
+    text-align: center;
+    border: solid 1px darkgray;
+    width: 20rem;
+    height: 5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    padding: .5rem;
+    font-size: .8rem;
+
+}
+
+.pass_btn {
+    width: 100%;
+}
+
+.pass_box_btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: .8rem;
+}
+
+.label_float {
+    font-size: 1rem;
+}
+
+.my_input_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #a5a5a5;
+    border-bottom: 1px solid #a5a5a5;
+    background-color: #f6f5f7;
+}
+
+/* footer 전체 Area CSS */
+.footer_box {
+    text-align: center;
+    margin: 1rem;
+}
+
+/* footer 글 목록 CSS */
+.footer_list {
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+/* header Nav 전체 Area */
+.nav_box {
+    text-align: center;
+}
+
+/* Navbar logo img CSS */
+.logo_img {
+    width: 10rem;
+    height: 5rem;
+}
+
+.nav_list {
+    margin: .5rem;
+    padding: .2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_list span {
+    margin: 1rem;
+    padding: .2rem;
+}
+
+.nav_list div {
+    margin: 1rem;
+}
+
+.logout_btn {
+    color: #a54417;
+    font-weight: bold;
+}
+
+/* 글 목록 Area CSS */
+.content_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding-top: .5rem;
+    border-top: 1px solid #a5a5a5;
+    border-bottom: 1px solid #a5a5a5;
+    background-color: #f6f5f7;
+}
+
+.profile_list {
+    text-align: left;
+}
+
+.profile_nick {
+    font-weight: bold;
+}
+
+.profile_name {
+    color: #a5a5a5;
+}
+
+.feed_diner {
+    color: #a5a5a5;
+}
+
+.feed_list {
+    width: 38rem;
+    min-width: 38rem;
+}
+
+.feed_box {
+    border: 1px solid #a5a5a5;
+    background-color: white;
+    border-radius: 1%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feed_profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: .9rem;
+}
+
+.feed_profile_box {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: .5rem;
+}
+
+.feed_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feed_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feed_edit {
+    margin-right: 1rem;
+}
+
+
+.feed_content_img_box {
+    width: 100%;
+    height: 30rem;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+.feed_content_img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.feed_icon_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: .5rem;
+}
+
+.favorite {
+    cursor: pointer;
+    color: red;
+}
+
+.bookmark {
+    cursor: pointer;
+    color: #b7dc6f;
+}
+
+.feed_favorite_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: .9rem;
+}
+
+.feed_favorite_profile {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: .4rem;
+}
+
+.feed_favorite_img {
+    width: 100%;
+    height: 100%;
+}
+
+.feed_content {
+    text-align: left;
+    margin: 0 .7rem;
+    font-size: 1rem;
+}
+
+.feed_comment {
+    text-align: left;
+    margin: 0 .7rem;
+    font-size: .9rem;
+
+}
+
+.feed_input_comment {
+    margin-top: .5rem;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid gainsboro;
+}
+
+.feed_input_comment input {
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    outline: none;
+}
+
+.reply_send {
+    width: 3.5rem;
+    font-weight: bold;
+    color: #39a1dc;
+}
+
+.rec_list {
+    width: 20rem;
+    height: 25rem;
+    background-color: gainsboro;
+    position: fixed;
+    margin-left: 65rem;
+    border-radius: 1rem;
+    border: 1px solid grey;
+}
+
+.rec_profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: .8rem;
+}
+
+.rec_profile_box {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: .5rem;
+}
+
+.rec_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rec_diner_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: .5rem;
+    font-weight: bold;
+
+}
+
+.rec_diner_title {
+    color: #a5a5a5;
+    font-size: .9rem;
+}
+
+.rec_diner_all a {
+    text-decoration: none;
+    font-size: .8rem;
+    color: black;
+}
+
+.rec_diner_profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: .8rem;
+    align-items: center;
+}
+
+.rec_diner_banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rec_diner_profile_box {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: .5rem;
+}
+
+.rec_diner_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.diner_list {
+    text-align: left;
+    font-size: .8rem;
+}
+
+.diner_name {
+    font-weight: bold;
+}
+
+.diner_menu {
+    color: #a5a5a5;
+}
+
+.rec_diner_link a {
+    margin-right: .5rem;
+    text-decoration: none;
+    font-size: .8rem;
+    color: black;
+    font-weight: bold;
+}
+
+.rec_nav {
+    margin: 1rem;
+}
+
+.rec_inquiry {
+    font-weight: bold;
+    font-size: .8rem;
+    color: darkgray;
+    word-spacing: 1rem;
+}
+
+.page_up {
+    margin: 1rem;
+    color: darkseagreen;
+}
+
+.add_contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_contents span {
+    margin: .5rem;
+}
+
+/* modal 창에 대한 CSS */
+.modal_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(.1rem);
+    -webkit-backdrop-filter: blur(.1rem);
+}
+
+.modal_window {
+    background: white;
+    backdrop-filter: blur(.8rem);
+    -webkit-backdrop-filter: blur(.8rem);
+    border-radius: .7rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 50rem;
+    height: 40rem;
+    position: relative;
+    padding: .6rem;
+}
+
+.modal_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.modal_nav_space {
+    width: 2.5rem;
+}
+
+.modal_upload_space {
+    width: 100%;
+    height: 34rem;
+}
+
+.another_modal_window {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal_write_space {
+    width: 25rem;
+    border-left: 1px solid #a5a5a5;
+}
+
+/* textarea 크기 조정 CSS */
+textarea {
+    height: 31.5rem;
+    resize: none;
+}
+
+.content_send {
+    width: 100%;
+}
+
+.warning_img {
+    width: 15rem;
+    height: 15rem;
+    object-fit: fill;
+}

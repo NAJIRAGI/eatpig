@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="my_input_area">
+        <div class="login_box">
+            <div class="mypage_img_box">
+                <img class="icon" src="{% static 'img/pig_icon.png' %}" alt="">Sign Up
+            </div>
+            <div class="tag_font">맛있는 맛집을 추천 하시려면 로그인 해주세요!</div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="input_email" placeholder="email">
+                    <label for="input_email" class="label_float">이메일을 입력 해주세요</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="input_password" placeholder="password">
+                    <label for="input_password" class="label_float">비밀번호를 입력해주세요</label>
+                </div>
+            </div>
+            <button id="login_btn" class="btn btn-dark rounded-pill pass_btn">로그인</button>
+        </div>
+        <div class="pass_box">
+            계정이 없으신가요? 아래 버튼을 눌러주세요
+            <div class="pass_box_btn">
+                <a href="/accounts/join">가입하기</a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/login.js' %}?{% now 'U' %}"></script>
+{% endblock %}

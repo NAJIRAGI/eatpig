@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="content_box">
+        <div class="feed_list">
+            <!-- 여기서 부터 Feed 부분 -->
+        {% if feed_list %}
+            {% for feed in feed_list %}
+                <div class="feed_box">
+                    <div class="feed_header">
+                        <div class="feed_profile">
+                            <div class="feed_profile_box">
+                                <img class="feed_profile_img" src="{% get_media_prefix %}{{ feed.profile_img }}" alt="">
+                            </div>
+                            <div class="profile_list">
+                                <div class="profile_nick">
+                                    {{ feed.nickname }}
+                                </div>
+                                <div class="feed_diner">
+                                    {{ feed.diner }}
+                                </div>
+                            </div>
+                        </div>
+                        {% if feed.nickname == user.nickname %}
+                            <div class="feed_edit">
+                                <span class="material-icons-outlined">edit</span>
+                                <span data-feed-id="{{ feed.id }}" class="material-icons-outlined delete_feed">highlight_off</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="feed_content_img_box">
+                        <img alt="" class="feed_content_img" src="{% get_media_prefix %}{{ feed.image }}">
+                    </div>
+                    <div class="category_list">
+                        <div class="category_menu">
+                            어떤 음식인가요? : {{ feed.menu }}
+                        </div>
+                        <div class="category_region">
+                            어디서 팔아요? : {{ feed.region }}
+                        </div>
+                    </div>
+                    <div class="feed_icon_list">
+                        <div>
+                            <span id="favorite_{{ feed.id }}" data-feed_id="{{ feed.id }}"
+                                  class="material-icons-outlined favorite">
+                                {% if feed.is_liked %}
+                                    favorite
+                                {% else %}
+                                    favorite_border
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div>
+                            <span id="bookmark_{{ feed.id }}" data-feed_id="{{ feed.id }}"
+                                  class="material-icons-outlined bookmark">
+                                {% if feed.is_marked %}
+                                    bookmark
+                                {% else %}
+                                    bookmark_border
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="feed_favorite_box">
+                        {% if feed.last_liked_user %}
+                            <div class="feed_favorite_profile">
+                                <img class="feed_favorite_img" src="{% get_media_prefix %}{{ feed.last_liked_user.user_profile }}"
+                                     alt="">
+                            </div>
+                            <b>{{ feed.last_liked_user.nickname }}</b> 이외에 <b>&nbsp;"{{ feed.like_count }}" 명</b>이 먹고 싶어 합니다.
+                        {% endif %}
+                    </div>
+                    <div class="feed_content"><b>"{{ feed.nickname }}"</b> {{ feed.content }}</div>
+                    <div id="reply_list_{{ feed.id }}">
+                        {% for reply in feed.reply_list %}
+                            <div class="feed_comment"><b>{{ reply.nickname }}</b>&nbsp;{{ reply.reply_content }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="feed_input_comment">
+                        <input id="reply_{{ feed.id }}" type="text" placeholder=" 댓글 달기...">
+                        <div data-feed_id="{{ feed.id }}" class="reply_send">
+                            게시
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>앗! 돼지가 게시글을 다 먹어버렸어요!</p>
+            <img class="warning_img" src="{% static 'img/cute_pig.png' %}" alt="">
+        {% endif %}
+            <!-- 여기 까지 Feed 부분 -->
+        </div>
+        <div class="rec_list">
+            <!-- 여기서 부터 Recommend 부분 -->
+            <div class="rec_profile">
+                <div class="rec_profile_box">
+                    <img class="rec_profile_img" src="{% get_media_prefix %}{{ user.profile_img }}" alt="">
+                </div>
+                <div class="profile_list">
+                    <div class="profile_nick">
+                        {{ user.nickname }}
+                    </div>
+                    <div class="profile_name">
+                        {{ user.name }}
+                    </div>
+                </div>
+            </div>
+            <div class="rec_diner_list">
+                <div class="rec_diner_title">
+                    <span>당신의 입맛에 맞는 식당</span>
+                </div>
+                <div class="rec_diner_all">
+                    <a href="#">모두 보기</a>
+                </div>
+
+            </div>
+            <div class="rec_diner_profile">
+                <div class="rec_diner_banner">
+                    <div class="rec_diner_profile_box">
+                        <img class="rec_diner_profile_img" src="{% static 'img/default_profile.jpg' %}"
+                             alt="">
+                    </div>
+                    <div class="diner_list">
+                        <div class="diner_name">
+                            식당 이름 나오는 곳
+                        </div>
+                        <div class="diner_menu">
+                            식당 메인 메뉴 나오는 곳
+                        </div>
+                    </div>
+                </div>
+                <div class="rec_diner_link">
+                    <a href="#">먹으러 가자!</a>
+                </div>
+            </div>
+            <hr>
+            <div class="rec_nav">
+                <div class="rec_inquiry">
+                    <span>고객센터</span> | <span>신고합니다</span>
+                </div>
+                <div class="page_up">
+                    <span id="arrow_up" class="material-icons-outlined">
+                        keyboard_double_arrow_up
+                    </span>
+                </div>
+                <div id="content_add_box" class="add_contents">
+                    <span class="material-icons-outlined">
+                        restaurant
+                    </span>
+                    <button class="btn btn-dark rounded-pill">맛집 추천하기</button>
+                </div>
+            </div>
+            <!-- 여기 까지 Recommend 부분 -->
+        </div>
+    </div>
+
+    <!-- first modal -->
+    <div id="first_modal" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_nav">
+                <div class="modal_nav_space">
+                </div>
+                <div class="modal_nav_name">
+                    제일 잘 나온 사진 1장을 준비 해주세요!
+                </div>
+                <div class="modal_nav_space">
+                    <span id="modal_close_first" class="material-icons-outlined modal_close">
+                        highlight_off
+                    </span>
+                </div>
+            </div>
+            <hr>
+            <div id="modal_upload" class="modal_upload_space">
+            </div>
+        </div>
+    </div>
+    <!-- second modal -->
+    <div id="second_modal" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_nav">
+                <div class="modal_nav_space">
+                    뒤로
+                </div>
+                <div class="modal_nav_name">
+                    음식에 대한 정보를 알려 주세요!
+                </div>
+                <div class="modal_nav_space">
+                    <span id="modal_close_second" class="material-icons-outlined modal_close">
+                        highlight_off
+                    </span>
+                </div>
+            </div>
+            <hr>
+            <div class="another_modal_window">
+                <div id="modal_upload" class="modal_upload_space">
+                </div>
+                <div class="modal_write_space">
+                    <div>
+                        <select id="menu" class="form-select" aria-label="Default select example">
+                            <option name="menu" value="kor">한식</option>
+                            <option name="menu" value="chn">중식</option>
+                            <option name="menu" value="jpn">일식</option>
+                            <option name="menu" value="west">양식</option>
+                            <option name="menu" value="stew">탕/찌개</option>
+                            <option name="menu" value="alcohol">해장</option>
+                            <option name="menu" value="fast">간편식</option>
+                            <option name="menu" value="etc">기타</option>
+                        </select>
+                        <select id="region" class="form-select" aria-label="Default select example">
+                            <option name="region" value="sel">서울</option>
+                            <option name="region" value="pus">부산</option>
+                            <option name="region" value="tae">대구</option>
+                            <option name="region" value="inc">인천</option>
+                            <option name="region" value="kwj">광주</option>
+                            <option name="region" value="taj">대전</option>
+                            <option name="region" value="sej">세종</option>
+                            <option name="region" value="usn">울산</option>
+                            <option name="region" value="kyg">경기</option>
+                            <option name="region" value="kaw">강원</option>
+                            <option name="region" value="ccb">충북</option>
+                            <option name="region" value="ccn">충남</option>
+                            <option name="region" value="clb">전북</option>
+                            <option name="region" value="cln">전남</option>
+                            <option name="region" value="ksb">경북</option>
+                            <option name="region" value="ksn">경남</option>
+                            <option name="region" value="chj">제주</option>
+                        </select>
+                        <div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="input_diner_name"
+                                       placeholder="dinner_name">
+                                <label for="input_diner_name" class="label_float">식당 이름을 입력 해주세요</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="feed_next_btn" class="btn btn-primary content_send">
+                        다음
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- third modal -->
+    <div id="third_modal" class="modal_overlay">
+        <div class="modal_window">
+            <div class="modal_nav">
+                <div class="modal_nav_space">
+                    뒤로
+                </div>
+                <div class="modal_nav_name">
+                    식당에 대한 리뷰를 적어 주세요!
+                </div>
+                <div class="modal_nav_space">
+                        <span id="modal_close_third" class="material-icons-outlined modal_close">
+                            highlight_off
+                        </span>
+                </div>
+            </div>
+            <hr>
+            <div class="another_modal_window">
+                <div id="modal_upload" class="modal_upload_space">
+                </div>
+                <div class="modal_write_space">
+                    <div>
+                        <textarea id="input_feed_area" class="form-control" rows="5"></textarea>
+                    </div>
+                    <button id="feed_create_btn" class="btn btn-primary content_send">
+                        공유
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/base.js' %}?{% now 'U' %}"></script>
+    <script src="{% static 'js/reply.js' %}?{% now 'U' %}"></script>
+    <script src="{% static 'js/like.js' %}?{% now 'U' %}"></script>
+    <script src="{% static 'js/bookmark.js' %}?{% now 'U' %}"></script>
+
+{% endblock %}

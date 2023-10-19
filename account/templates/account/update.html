@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="my_input_area">
+        <div class="update_box">
+            <div class="mypage_img_box">
+                <img class="icon" src="{% static 'img/pig_icon.png' %}" alt="">Sign Up
+            </div>
+            <div class="tag_font">맛있는 맛집을 추천 하시려면 가입 해주세요!</div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="input_email" placeholder="email" value="{{ email }}" disabled>
+                    <label for="input_email" class="label_float">Email</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="input_name" placeholder="name" value="{{ name }}" disabled>
+                    <label for="input_name" class="label_float">Name</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="new_nickname" placeholder="nickname" value="{{ nickname }}">
+                    <label for="input_nickname" class="label_float">Nickname</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="old_password" placeholder="password">
+                    <label for="input_password" class="label_float">기존 비밀번호를 입력해주세요</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="new_password" placeholder="password">
+                    <label for="input_password" class="label_float">새로운 비밀번호를 입력해주세요</label>
+                </div>
+            </div>
+            <button id="update_btn" class="btn btn-dark rounded-pill pass_btn">변경하기</button>
+        </div>
+    </div>
+    <script src="{% static 'js/update.js' %}?{% now 'U' %}"></script>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="my_input_area">
+        <div class="join_box">
+            <div class="mypage_img_box">
+                <img class="icon" src="{% static 'img/pig_icon.png' %}" alt="">Sign Up
+            </div>
+            <div class="tag_font">맛있는 맛집을 추천 하시려면 가입 해주세요!</div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="input_email" placeholder="email">
+                    <label for="input_email" class="label_float">이메일을 입력 해주세요</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="input_name" placeholder="name">
+                    <label for="input_name" class="label_float">이름을 입력 해주세요</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="input_nickname" placeholder="nickname">
+                    <label for="input_nickname" class="label_float">닉네임을 입력 해주세요</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="input_password" placeholder="nickname">
+                    <label for="input_password" class="label_float">비밀번호를 입력해주세요</label>
+                </div>
+            </div>
+            <button id="join_btn" class="btn btn-dark rounded-pill pass_btn">가입하기</button>
+        </div>
+        <div class="pass_box">
+            계정이 있으신가요? 아래 버튼을 눌러주세요
+            <div class="pass_box_btn">
+                <a href="/accounts/login">로그인</a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/join.js' %}?{% now 'U' %}"></script>
+
+
+{% endblock %}

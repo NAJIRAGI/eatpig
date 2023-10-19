@@ -1,0 +1,28 @@
+{% load static %}
+<div class="nav_box">
+    <div>
+        <a href="/contents/content_list"><img class="logo_img" src="{% static 'img/logo-removebg-preview.png' %}"></a>
+    </div>
+    <div class="nav_list">
+        <span><a href="/contents/menupage">메뉴별 맛집</a></span>
+        <span><a href="/contents/regionpage">지역별 맛집</a></span>
+        <span>추천 맛집</span>
+        {% if not user.is_authenticated %}
+        {% else %}
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    마이 페이지
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="/accounts/mypage" pk="user.pk">내 정보</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item logout_btn" href="/accounts/logout">로그아웃</a></li>
+                </ul>
+            </div>
+        {% endif %}
+
+    </div>
+</div>

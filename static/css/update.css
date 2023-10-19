@@ -1,0 +1,11 @@
+.update_box {
+    text-align: center;
+    border: solid 1px darkgray;
+    width: 20rem;
+    height: 36rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    padding: 1rem;
+}
+

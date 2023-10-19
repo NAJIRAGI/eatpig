@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="category_area">
+        <h1 class="category_title">메뉴별 맛집 찾기!</h1>
+        <span>원하는 메뉴를 Click! 해주세요!</span>
+        <div class="menu_area">
+            <div class="menu_list">
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=한식">
+                        <img alt="" src="{% static 'img/kor_food.png' %}">
+                        <p>한식</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=중식">
+                        <img alt="" src="{% static 'img/chn_food.png' %}">
+                        <p>중식</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=일식">
+                        <img alt="" src="{% static 'img/jpn_food.png' %}">
+                        <p>일식</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=양식">
+                        <img alt="" src="{% static 'img/west_food.png' %}">
+                        <p>양식</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=탕/찌개">
+                        <img alt="" src="{% static 'img/stew_food.png' %}">
+                        <p>탕 / 찌개</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=해장">
+                        <img alt="" src="{% static 'img/alcohol_food.png' %}">
+                        <p>해장</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=간편식">
+                        <img alt="" src="{% static 'img/fast_food.png' %}">
+                        <p>간편식</p>
+                    </a>
+                </div>
+                <div class="menu_box">
+                    <a href="/contents/content_list/?menu=기타">
+                        <img alt="" src="{% static 'img/etc_food.png' %}">
+                        <p>기타</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/base.js' %}?{% now 'U' %}"></script>
+{% endblock %}

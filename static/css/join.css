@@ -1,0 +1,11 @@
+.join_box {
+    text-align: center;
+    border: solid 1px darkgray;
+    width: 20rem;
+    height: 31rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    padding: 1rem;
+}
+
