@@ -83,3 +83,5 @@ __pycache__
 .env
 
 .idea/
+
+db.sqlite3
