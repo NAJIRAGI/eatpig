@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from account.models import Account
-from eatpig.settings import MEDIA_ROOT
+from eatpig.settings.base import MEDIA_ROOT
 from .models import Content, Reply, Like, Bookmark
 
 

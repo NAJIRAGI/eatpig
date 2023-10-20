@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 
 from account.models import Account
 from content.models import Content, Like, Bookmark
-from eatpig.settings import MEDIA_ROOT
+from eatpig.settings.base import MEDIA_ROOT
 
 
 # Create your views here.
