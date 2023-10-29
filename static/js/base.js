@@ -286,9 +286,9 @@ $('#feed_edit_btn').click(function () {
     const file = files[0];
     let img = files[0].name;
     let content = $('#input_edit_feed_area').val();
-    let select_menu = document.getElementById('menu');
+    let select_menu = document.getElementById('edit_menu');
     let menu = (select_menu.options[select_menu.selectedIndex].text);
-    let select_region = document.getElementById('region');
+    let select_region = document.getElementById('edit_region');
     let region = (select_region.options[select_region.selectedIndex].text);
     let diner = $('#input_edit_diner_name').val();
 
