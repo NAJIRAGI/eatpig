@@ -177,3 +177,49 @@ class MenuPage(APIView):
 class RegionPage(APIView):
     def get(self, request):
         return render(request, 'content/regionpage.html')
+
+
+class UpdateFeed(APIView):
+    def post(self, request):
+        feed_id = request.data.get('feed_id', None)
+        if not feed_id:
+            return Response(status=400, data={'error': 'Missing feed_id'})
+
+        try:
+            feed = Content.objects.get(id=feed_id)
+        except Content.DoesNotExist:
+            return Response(status=404, data={'error': 'Feed not found'})
+
+        # 사진 수정
+        file = request.FILES.get('file')
+        if file:
+            # 이전 사진 삭제
+            if feed.image:
+                image_path = os.path.join(MEDIA_ROOT, feed.image)
+                if os.path.exists(image_path):
+                    os.remove(image_path)
+
+            # 새로운 사진 저장
+            uuid_name = uuid4().hex
+            save_path = os.path.join(MEDIA_ROOT, uuid_name)
+
+            with open(save_path, 'wb+') as destination:
+                for chunk in file.chunks():
+                    destination.write(chunk)
+
+            feed.image = uuid_name
+
+        # 수정할 내용 가져오기
+        contents = request.data.get('content')
+        region = request.data.get('region')
+        menu = request.data.get('menu')
+        diner = request.data.get('diner')
+
+        # 수정할 내용 업데이트
+        feed.contents = contents
+        feed.region = region
+        feed.menu = menu
+        feed.diner = diner
+        feed.save()
+
+        return Response(status=200)

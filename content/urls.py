@@ -1,7 +1,7 @@
 from django.urls import path
 
 from content.views import Contents, UploadFeed, UploadReply, ToggleLike, ToggleBookmark, DeleteFeed, MenuPage, \
-    RegionPage
+    RegionPage, UpdateFeed
 
 from . import views
 
@@ -16,5 +16,6 @@ urlpatterns = [
     path('bookmark/', ToggleBookmark.as_view()),
     path('content_delete', DeleteFeed.as_view()),
     path('menupage/', MenuPage.as_view()),
-    path('regionpage/', RegionPage.as_view())
+    path('regionpage/', RegionPage.as_view()),
+    path('update/', UpdateFeed.as_view())
 ]
